@@ -4,6 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
+import 'LESS/main.less';
 //@NgModule装饰器用来为模块定义元数据
 @NgModule({ // @NgModule 用来定义模块用的装饰器
   declarations: [AppComponent], // 导入模块所依赖的组件、指令等,用于指定这个模块的视图类
