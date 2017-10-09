@@ -1,0 +1,172 @@
+.product-list{
+    // background: url('../../images/bg_home.png') no-repeat;
+    background-size: contain;
+    min-height: 100vh;
+    background-position: top;
+    overflow: hidden;
+    background-color: #edf0f2;
+    padding: 0 0.26666666666666666rem;
+    padding-bottom:1.4666666666666666rem;
+    .header{
+        margin-top: 0.4rem;
+        height: 0.9333333333333333rem;
+        text-align: center;
+        margin-bottom: 0.4rem;
+    }
+    .list-item{
+        background-color: #fff;
+        height: 3.52rem;
+        margin-bottom: 0.21333333333333335rem;
+        color:#5c5c5c;
+        padding: 0.44rem 0.3466666666666667rem 0.24rem 0.5066666666666667rem;
+        svg,img{
+            height: 1.2rem;
+            width: 1.2rem;
+            margin-bottom: 0.24rem;
+        }
+        .list-item-title{
+            font-weight: 400;
+            color: #333;
+            // .fz(18px);
+            svg{
+                float: right;
+                width: 0.4266666666666667rem;
+                height: 0.4266666666666667rem;
+                margin-right: 0.16rem;
+            }
+        }
+        .content-left{
+            margin-right: 1.3333333333333333rem;
+            display: inline-block;
+        }
+        li{
+           margin-bottom: 0.29333333333333333rem;
+        }
+        .content-right{
+            float: right;
+            display: inline-block;
+            text-align: center;
+            width: 5em;
+        }
+        .list-item-content{
+            margin-top: 0.4266666666666667rem;
+            overflow: hidden;
+        }
+    }
+    .edit-button{
+        float: right;
+        // .fz(16px);
+        // .vertical-center(0.9333333333333333rem);
+        color: #fff;
+    }
+    .create-button{
+        display: inline-block;
+        height: 0.9333333333333333rem;
+        line-height:0.9333333333333333rem;
+        color: #fff;
+        width: 6rem;
+        // .fz(17px);
+        border: 0.02666666666666667rem solid #fff;
+        border-radius: 0.9333333333333333rem;
+        svg{
+            width: 0.4rem;
+            height: 0.4rem;
+            margin-right: 0.18666666666666668rem;
+        }
+    }
+
+}
+.modal-product-img{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width: 8rem;
+    height: 8rem;
+    background-color: #fff;
+    text-align: center;
+    padding: 0.64rem 1.0933333333333333rem;
+    .header{
+        font-weight: 400;
+        margin-bottom: 0.4533333333333333rem;
+        // .fz(19px);
+        color: #333;
+    }
+    img{
+        width: 5.8133333333333335rem;
+        height: 5.8133333333333335rem;
+    }
+    .close-modal{
+        width: 0.88rem;
+        height: 0.88rem;
+        display: inline-block;
+        position: absolute;
+        top: -0.44rem;
+        right: -0.44rem;
+        // background: url('../../images/close.png') no-repeat;
+        background-size: cover;
+    }
+}
+.product-detail{
+    background-color: #edf0f2;
+    padding-top: 0.24rem;
+    text-align: center;
+    .create-button{
+        width: 8.746666666666666rem;
+        margin-top: 0.5866666666666667rem;
+        outline: none;
+        border: none;
+        height: 1.1466666666666667rem;
+        line-height: 1.1466666666666667rem;
+        color: #fff;
+        // .fz(16px);
+        border-radius: 0.13333333333333333rem;
+        background: linear-gradient(to right, #4ed0c4,#4ebcd0);
+    }
+    .create-button:disabled{
+        background: #c8c8c8;
+    }
+    .input-block-item{
+        padding-left: 0.6133333333333333rem;
+        padding-right: 0.4266666666666667rem;
+        height: 1.3333333333333333rem;
+        line-height: 1.3333333333333333rem;
+        color: #333;
+        // .fz(15px);
+    }
+    .input-block-item .input{
+        height: 100%;
+        input{
+            text-align: right;
+        }
+    }
+    .input-content{
+        margin-left: 2.986666666666667rem;
+        select{
+            float: right;
+            direction: rtl;
+            background-color: transparent;
+            outline: none;
+            height:100%;
+            border: none;
+            appearance:none;
+            // .fz(15px);
+            padding-right:0.56rem;
+        }
+        option{
+        //   .fz(15px);
+        }
+        .text{
+            float: right;
+        }
+        &.package-select{
+          position: relative;
+          svg{
+            position: absolute;
+            right: 0;
+            top: 0.46rem;
+            height: 0.4rem;
+          }
+        }
+    }
+}

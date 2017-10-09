@@ -8,10 +8,15 @@
       "sourceMap": true,
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
-      "noImplicitAny": true,
+      "noImplicitAny": false,
       "lib": ["dom", "es6"],
-      "suppressImplicitAnyIndexErrors": true
+      "suppressImplicitAnyIndexErrors": true,
+      "baseUrl": "./src",
+      "paths":{
+          "page":["container/page/js/app.component"]
+      }
     },
+
     "exclude": [
       "node_modules",
       "public"
