@@ -1,7 +1,10 @@
 import { AppComponent } from '../../page/js/app.component';
 import { ProductList } from "../../product/js/list";
 import { ProductCreate } from "../../product/js/create";
-import {HttpClientModule} from '@angular/common/http';
+import {HttpModule} from '@angular/http';
+import { Http } from "@angular/http";
+import ProductService from '../../product/js/product.service';
+import Fetch from '../../../components/helpers/fetch';
 import { routes } from './routes';
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
@@ -14,10 +17,10 @@ import 'LESS/main.less';
   imports: [
     BrowserModule, //包含了commonModule和applicationModule模块,封装在浏览器平台运行时的一些工具库
     FormsModule,  // 表单相关的组件指令等，包含了[(ngModel)]
-    HttpClientModule,//http服务
+    HttpModule,//http服务
     RouterModule.forRoot(routes,{useHash: false}), // RouterModule.forRoot()方法来创建根路由模块
   ], // 导入当前模块所需要的其他模块
-  providers:[],//注入服务
+  providers:[ProductService,Fetch],//注入服务
   bootstrap: [AppComponent], // 标记出引导组件
   //把这个AppComponent标记为引导 (bootstrap) 组件。当Angular引导应用时，它会在DOM中渲
   //染AppComponent，并把结果放进index.html的元素内部。

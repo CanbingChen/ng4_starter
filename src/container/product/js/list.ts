@@ -4,6 +4,7 @@ import '../less/product.less'
 @Component({
     selector:'product-list',
     templateUrl:'../html/list.tpl.html',
+    providers: [ProductService],
 })
 export class ProductList implements OnInit{
     constructor(private ProductService: ProductService) {
@@ -11,7 +12,6 @@ export class ProductList implements OnInit{
     }
     title = '我是产品经理';
     ngOnInit():void{
-        console.log('ssssssssssssss');
-        this.ProductService.getProductList({});
+        this.ProductService.getProductList({name:'ccb'});
     }
 }
