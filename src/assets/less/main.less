@@ -1,8 +1,129 @@
-@reset-global pc;
-h1{
-    color:red;
-    &.title{
-        font-size: 20px;
-        color: green;
+// @reset-global pc;
+@import "./base/mixin";
+@import "./base/reset";
+@import "./base/toast";
+@import "./base/transition";
+.clearfix {
+    &:after {
+        content: '\20';
+        display: block;
+        height: 0;
+        clear: both;
     }
+}
+html {
+    height: 100%;
+}
+body{
+    min-height: 100%;
+    background-color: #f2f4f6;
+}
+
+.main-ui-view{
+    height: 100%;
+    animation: moveIn .3s ease-in-out;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes moveIn{
+    from {
+        opacity: 0;
+        transform: translateY(0.133333rem);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn{
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.pull-to-refresh {
+  position: relative;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  // height: 40px;
+  padding: 20px 0;
+  border-bottom: 1px dashed #ccc;
+  text-align: center;
+  line-height: 40px;
+  -webkit-transition-duration: 400ms;
+  -moz-transition-duration: 400ms;
+  transition-duration: 400ms;
+  -webkit-transition-property: margin;
+  -moz-transition-property: margin;
+  transition-property: margin;
+  // Make block visible to gpu scroll
+  -webkit-transform: translateZ(0px);
+  -moz-transform: translateZ(0px);
+  transform: translateZ(0px);
+}
+
+.main-container{
+  padding-bottom: 1.28rem;
+}
+
+.nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 1.4666666666666666rem;
+  background-color: #ffffff;
+  border-top: 1px solid #ededed;
+  z-index: 10000;
+  li {
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    padding-top: 0.18666666666666668rem;
+    a {
+      display: block;
+    }
+    svg {
+      width: 0.6666666666666666rem;
+      height: 0.5866666666666667rem;
+      text-align: center;
+      margin-bottom: 0.16rem;
+    }
+    span {
+      color: #969696;
+      display: block;
+      .fz(12px);
+    }
+
+    &.active {
+      span {
+        color: #4ec1cd;
+      }
+    }
+  }
+}
+.modal-overflow{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(0,0,0,.5);
+    z-index: 10001;
+}
+.warning-text{
+    color: red;
 }

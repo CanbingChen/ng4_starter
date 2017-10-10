@@ -1,0 +1,24 @@
+<div class="sign-in">
+    <header>
+        <h1>办单员登录</h1>
+    </header>
+    <div class="sign-content">
+        <ul>
+            <li>
+                <span for="phone">手机号码：</span>
+                <input id="phone" name="phone" [(ngModel)]="postParams.phone" type="text" placeholder="请输入手机号码" />
+            </li>
+            <li class="warning-text" *ngIf="error.errPhone">
+                {{error.errPhone}}
+            </li>
+            <li>
+                <span for="password">密码：</span>
+                <input id="password" name="password" [(ngModel)]="postParams.password" type="password" placeholder="6-18位密码" />
+            </li>
+            <li class="warning-text" *ngIf="error.errPassword">
+                {{error.errPassword}}
+            </li>
+        </ul>
+        <button class="confirm-btn"  (click)="submit()">登录</button>
+    </div>
+</div>

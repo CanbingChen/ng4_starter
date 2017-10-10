@@ -1,6 +1,7 @@
 import { AppComponent } from '../../page/js/app.component';
 import { ProductList } from "../../product/js/list";
 import { ProductCreate } from "../../product/js/create";
+import { Signin } from "../../signin/js/signin";
 import {HttpModule} from '@angular/http';
 import { Http } from "@angular/http";
 import ProductService from '../../product/js/product.service';
@@ -13,7 +14,7 @@ import { NgModule } from "@angular/core";
 import 'LESS/main.less';
 //@NgModule装饰器用来为模块定义元数据
 @NgModule({ // @NgModule 用来定义模块用的装饰器
-  declarations: [AppComponent,ProductList,ProductCreate], // 导入模块所依赖的组件、指令等,用于指定这个模块的视图类
+  declarations: [AppComponent,ProductList,ProductCreate,Signin], // 导入模块所依赖的组件、指令等,用于指定这个模块的视图类
   imports: [
     BrowserModule, //包含了commonModule和applicationModule模块,封装在浏览器平台运行时的一些工具库
     FormsModule,  // 表单相关的组件指令等，包含了[(ngModel)]

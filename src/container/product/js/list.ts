@@ -1,6 +1,6 @@
 import {Component,OnInit} from "@angular/core";
 import ProductService from './product.service';
-import '../less/product.less'
+import '../less/product.less';
 @Component({
     selector:'product-list',
     templateUrl:'../html/list.tpl.html',

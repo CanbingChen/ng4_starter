@@ -12,6 +12,7 @@ var paths = {
 
 module.exports = {
     entry: {
+    'flexible':'./src/vendor/flexible.js',
     'polyfills': './src/polyfills.ts', // 运行Angular时所需的一些标准js
     'vendor': './src/vendor.ts', // Angular、Lodash、bootstrap.css......
     'app': './src/main.ts' // 应用代码
