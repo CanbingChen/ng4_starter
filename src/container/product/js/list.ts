@@ -12,6 +12,12 @@ export class ProductList implements OnInit{
     }
     title = '我是产品经理';
     ngOnInit():void{
-        this.ProductService.getProductList({name:'ccb'});
+        this.ProductService.getProductList({name:'ccb'}).then((data)=>{
+            console.log(data);
+            console.log('=============');
+        },(response)=>{
+            console.log(response);
+            console.log('reject');
+        });
     }
 }

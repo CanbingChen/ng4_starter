@@ -72,7 +72,15 @@ module.exports = webpackMerge(baseConfig, {
 	},
 	devServer: {
 		port: 9001,
-		historyApiFallback: true
+		historyApiFallback: true,
+        proxy: {
+    		'/api/**': {
+          // target: 'http://rapapi.org/mockjs/20340',
+    			// target: 'http://127.0.0.1:8778',
+    			target: 'http://rc-operator.test.cdecube.com',
+    			changeOrigin: true
+    		}
+    	},
 	},
 	plugins: [
 		//热替换

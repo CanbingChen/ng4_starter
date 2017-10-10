@@ -18,23 +18,44 @@ export default class Fetch{
         }
     }
     post = (url:string,params:any)=>{
-        return this.http.post(url, params)
-        .toPromise()
-        .then(this.handleSuccess)
-        .catch(res => this.handleError(res));
+        let promise = new Promise((resolve,reject)=>{
+            this.http.post(url, params)
+            .toPromise()
+            .then((res:Response)=>{
+                let body = JSON.parse(res["_body"]);
+                let responseCode = body.code;
+                if(responseCode === 10000){
+                    resolve(body);
+                }else{
+                    reject(body);
+                }
+            })
+            .catch(res => this.handleError(res));
+        });
+        return promise;
     }
     get = (url:string,params:any) =>{
-        return this.http.get(url, {search: params})
-        .toPromise()
-        .then(this.handleSuccess)
-        .catch(res => this.handleError(res));
+        let promise = new Promise((resolve,reject)=>{
+           this.http.get(url, {search: params})
+            .toPromise()
+            .then((res:Response)=>{
+                let body = JSON.parse(res["_body"]);
+                let responseCode = body.code;
+                if(responseCode === 10000){
+                    resolve(body);
+                }else{
+                    reject(body);
+                }
+            })
+            .catch(res => this.handleError(res));
+        });
+        return promise;
     }
     private handleSuccess=(res:Response)=>{
         let body = res["_body"];
         if (body) {
           return {
-            data: res.json().content || {},
-            page: res.json().page || {},
+            data: JSON.parse(body),
             statusText: res.statusText,
             status: res.status,
             success: true
@@ -59,7 +80,6 @@ export default class Fetch{
         if (error.status == 500) {
           console.error('请求的服务器错误');
         }
-        console.log(error);
         return {success: false, msg: msg};
     }
 }
