@@ -1,3 +1,6 @@
-<div>
-    {{title}}
+<div class="product-list-box">
+    <div class="product-list">
+        <product-header [isEdit]="isEdit" (changeEdit)="changeEditState($event)"></product-header>
+        <list-item *ngFor="let item of goodsList" [isEdit]="isEdit"  [itemObj]="item" (remove)="removeItem($event)"></list-item>
+    </div>
 </div>

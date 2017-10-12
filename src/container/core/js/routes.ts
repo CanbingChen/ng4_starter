@@ -1,21 +1,21 @@
-import { Routes } from '@angular/router';
+import { Routes } from "@angular/router";
 import { AppComponent } from "../../page/js/app.component";
-import { ProductList } from "../../product/js/list";
-import { ProductCreate } from "../../product/js/create";
-import { Signin } from "../../signin/js/signin";
+import { ProductListComponent } from "../../product/js/list.component";
+import { ProductCreateComponent } from "../../product/js/create.component";
+import { SigninComponent } from "../../signin/js/signin.component";
 export const routes: Routes = [ // Routes类型的数组
   {
-    path      : 'index',
-    component : ProductList
+    path      : "",
+    component : ProductListComponent
   },{
-    path      : 'create',
-    component : ProductCreate
+    path      : "create",
+    component : ProductCreateComponent
 },{
-  path      : 'signin',
-  component : Signin
+  path      : "signin",
+  component : SigninComponent
 },{
-    path      : '',
-    redirectTo: 'index',
-    pathMatch : 'full'
+    path      : "ccb",
+    redirectTo: "index",
+    pathMatch : "full"
   }
 ];

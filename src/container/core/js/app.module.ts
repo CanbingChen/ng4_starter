@@ -1,20 +1,22 @@
-import { AppComponent } from '../../page/js/app.component';
-import { ProductList } from "../../product/js/list";
-import { ProductCreate } from "../../product/js/create";
-import { Signin } from "../../signin/js/signin";
-import {HttpModule} from '@angular/http';
+import { AppComponent } from "../../page/js/app.component";
+import { ProductListComponent } from "../../product/js/list.component";
+import { ProductHeaderComponent } from "../../product/js/list_header.component";
+import { ProductCreateComponent } from "../../product/js/create.component";
+import { ProductListItemComponent } from "../../product/js/list_item.component";
+import { SigninComponent } from "../../signin/js/signin.component";
+import {HttpModule} from "@angular/http";
 import { Http } from "@angular/http";
-import ProductService from '../../product/js/product.service';
-import Fetch from '../../../components/helpers/fetch';
-import { routes } from './routes';
+import ProductService from "../../product/js/product.service";
+import Fetch from "../../../utils/fetch";
+import { routes } from "./routes";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
-import 'LESS/main.less';
+import "LESS/main.less";
 //@NgModule装饰器用来为模块定义元数据
 @NgModule({ // @NgModule 用来定义模块用的装饰器
-  declarations: [AppComponent,ProductList,ProductCreate,Signin], // 导入模块所依赖的组件、指令等,用于指定这个模块的视图类
+  declarations: [AppComponent,ProductListComponent,ProductCreateComponent,SigninComponent,ProductHeaderComponent,ProductListItemComponent], // 导入模块所依赖的组件、指令等,用于指定这个模块的视图类
   imports: [
     BrowserModule, //包含了commonModule和applicationModule模块,封装在浏览器平台运行时的一些工具库
     FormsModule,  // 表单相关的组件指令等，包含了[(ngModel)]

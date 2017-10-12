@@ -25,7 +25,7 @@ export default class Fetch{
                 let body = JSON.parse(res["_body"]);
                 let responseCode = body.code;
                 if(responseCode === 10000){
-                    resolve(body);
+                    resolve(body.data);
                 }else{
                     reject(body);
                 }
@@ -42,7 +42,7 @@ export default class Fetch{
                 let body = JSON.parse(res["_body"]);
                 let responseCode = body.code;
                 if(responseCode === 10000){
-                    resolve(body);
+                    resolve(body.data);
                 }else{
                     reject(body);
                 }

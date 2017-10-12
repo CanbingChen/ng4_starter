@@ -1,0 +1,7 @@
+<div class="header">
+    <a href="/product/create?type={{config.packageType}}" class="create-button">
+     添加分期商品
+ </a>
+     <span class="edit-button clearfix"  *ngIf="_isEdit" (click)="changeEditState()">完成</span>
+     <span class="edit-button clearfix" *ngIf="!_isEdit" (click)="changeEditState()">编辑</span>
+</div>

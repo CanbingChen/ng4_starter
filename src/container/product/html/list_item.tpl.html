@@ -1,0 +1,42 @@
+<div class="list-item">
+    <h3 class="list-item-title">
+<span>{{itemObj.name}}</span>
+<span *ngIf="_isEdit" (click)="removeItem()">删除</span>
+<!-- {isEdit && <svg class="remove-button" viewBox={deleteIcon.viewBox} onClick={this.removeItem}>
+<use xlinkHref={`#${deleteIcon.id}`} /> -->
+<!-- </svg>} -->
+</h3>
+    <div class="list-item-content">
+        <div class="content-left">
+            <ul>
+                <li>
+                    <span class="name">商品价格：</span>
+                    <span class="value">
+                      {{itemObj.price}}元
+                    </span>
+                </li>
+                <li>
+                    <span class="name">借款金额：</span>
+                    <span class="value">
+                      {{itemObj.loanAmount}}元
+                    </span>
+                </li>
+                <li>
+                    <span class="name">商品详情：</span>
+                    <span class="value">
+                      <!-- {{describes}} -->
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="itemObj.status===1&&!_isEdit" class="content-right" onClick={this.preview}>
+            <!-- <svg viewBox={codeImg.viewBox}>
+                <use xlinkHref={`#${codeImg.id}`} />
+            </svg> -->
+            <p>查看二维码</p>
+        </div>
+        <div *ngIf="itemObj.status===2" class="content-right">
+          <img src="" alt="失效图片" />
+        </div>
+    </div>
+</div>
