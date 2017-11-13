@@ -16,7 +16,10 @@
           "page":["container/page/js/app.component"]
       }
     },
-
+    "types": [
+            "node",
+            "jasmine"
+        ],
     "exclude": [
       "node_modules",
       "public"

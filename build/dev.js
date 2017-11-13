@@ -11,8 +11,8 @@ const server = new WebpackDevServer(compiler, {
 	contentBase: path.join(__dirname, ".."),
 
 	hot: true,
-	overlay: true,
-	disableHostCheck: true,
+	// overlay: true,
+	// disableHostCheck: true,
 	proxy: {
 		'/api/**': {
             // target: 'http://rapapi.org/mockjs/20340',

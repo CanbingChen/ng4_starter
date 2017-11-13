@@ -11,12 +11,18 @@ var paths = {
 
 
 module.exports = {
-    entry: {
-    'flexible':'./src/vendor/flexible.js',
-    'polyfills': './src/polyfills.ts', // 运行Angular时所需的一些标准js
-    'vendor': './src/vendor.ts', // Angular、Lodash、bootstrap.css......
-    'app': './src/main.ts' // 应用代码
-  },
+    entry: [
+        path.join(rootPath,'./src/vendor/flexible.js'),
+        path.join(rootPath,'./src/polyfills.ts'),
+        path.join(rootPath,'./src/vendor.ts'),
+        path.join(rootPath,'./src/main.ts'),
+        ],
+  //   {
+  //   'flexible':,
+  //   'polyfills': '', // 运行Angular时所需的一些标准js
+  //   'vendor': '', // Angular、Lodash、bootstrap.css......
+  //   'app': './src/main.ts' // 应用代码
+  // },
 	output: {
 		path: path.join(rootPath, './dist'),
 		publicPath: '/',
@@ -54,13 +60,32 @@ module.exports = {
         //html - 为组件模板准备的加载器
       }, {
         test:/\.(jpg|png|gif)$/,
-        use:"file-loader"
+        use:[{
+            loader:'url-loader',
+            options: {
+                limit: 10240, // 10KB 以下使用 base64
+                name: 'assets/image/[name]-[hash:6].[ext]'
+            }
+        }]
+      },{
+          test: /\.svg$/,
+          include: path.join(rootPath, './src/assets/svgs'),
+          use: [{
+                  loader: 'svg-sprite-loader',
+                  options: {}
+              },
+              'svg-fill-loader'
+          ]
       }, {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use : "url-loader?limit=10000&minetype=application/font-woff"
-      }, {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use : "file-loader"
-    }]
+          test: /\.(woff2?|eot|ttf|otf|svg)$/,
+          exclude: path.join(rootPath, './src/assets/svgs'),
+          use: [{
+              loader: 'url-loader',
+              options: {
+                  limit: 10240, // 10KB 以下使用 base64
+                  name: 'assets/fonts/[name]-[hash:6].[ext]'
+              }
+          }],
+      }]
 	},
 }

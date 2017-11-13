@@ -1,11 +1,12 @@
 'use strict'; // eslint-disable-line
-var webpackMerge = require('webpack-merge');
-const helpers = require('./helpers');
+const webpackMerge = require('webpack-merge');
 const baseConfig = require('./webpack.config.base');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {TsConfigPathsPlugin} = require('awesome-typescript-loader');
-var webpack = require('webpack');
-var path = require('path');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+const webpack = require('webpack');
+const path = require('path');
 // const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 // baseConfig.devtool = 'cheap-module-eval-source-map';
@@ -14,7 +15,16 @@ var path = require('path');
 // 		'webpack/hot/dev-server'
 // 	]
 // 	.concat(baseConfig.entry)
+const rootPath = path.resolve(__dirname, '..'); // 项目根目录
+const paths = {
+	srcPath: path.join(rootPath, './src'),
+	htmlPath: path.join(rootPath, './src/index.html'),
+  staticPath: path.join(rootPath, './static'),
+}
+baseConfig.entry = ['webpack-dev-server/client?http://localhost:9000',
+'webpack/hot/dev-server'].concat(baseConfig.entry);
 module.exports = webpackMerge(baseConfig, {
+    devtool:'cheap-module-eval-source-map',
 	output: {
 		publicPath: '/',
 		filename: 'assets/js/[name].js',
@@ -70,25 +80,24 @@ module.exports = webpackMerge(baseConfig, {
 			}
 		]
 	},
-	devServer: {
-		port: 9001,
-		historyApiFallback: true,
-        proxy: {
-    		'/api/**': {
-          // target: 'http://rapapi.org/mockjs/20340',
-    			// target: 'http://127.0.0.1:8778',
-    			target: 'http://rc-operator.test.cdecube.com',
-    			changeOrigin: true
-    		}
-    	},
-	},
+    devServer: {
+
+    },
 	plugins: [
-		//热替换
+		new DashboardPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: ['vendor', 'polyfills']
 			//多个html共用一个js文件，提取公共代码
 		}),
+        new CopyWebpackPlugin([{
+          context: paths.staticPath,
+          from: '**/*',
+          to: 'assets/js/'
+      }]),
+        new webpack.DefinePlugin({
+  		'process.env.NODE_ENV': JSON.stringify('development')
+  	}),
 
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
