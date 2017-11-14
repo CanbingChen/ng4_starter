@@ -29,7 +29,7 @@ module.exports = {
 	},
 
 	resolve: {
-		extensions: ['.js','.ts'],
+		extensions: ['.ts','.js'],
 		alias: {
 			'SRC': paths.srcPath,
 			'LESS': path.join(rootPath, './src/assets/less'),

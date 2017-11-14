@@ -24,7 +24,7 @@ const paths = {
 baseConfig.entry = ['webpack-dev-server/client?http://localhost:9000',
 'webpack/hot/dev-server'].concat(baseConfig.entry);
 module.exports = webpackMerge(baseConfig, {
-    devtool:'cheap-module-eval-source-map',
+    devtool:'cheap-module-source-map',
 	output: {
 		publicPath: '/',
 		filename: 'assets/js/[name].js',
